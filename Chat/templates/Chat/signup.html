@@ -1,0 +1,25 @@
+
+{% if Message %}
+    <p> {{ Message }} </p>
+{% endif %}
+
+<form action="{% url 'Chat:signup' %}" method="post">
+    {% csrf_token %}
+    <label> First Name: </label>
+    <input type='text' name='firstname'/><br>
+
+    <label> Last Name: </label>
+    <input type='text' name='lastname'/><br>
+
+    <label> Username: </label>
+    <input type='text' name='username'/><br>
+
+    <label> Password: </label>
+    <input type='password' name='password'/><br>
+
+    <label> Re-Write Password: </label>
+    <input type='password' name='password2'/><br>
+
+    <button type="Submit" name="action" value="signup"/>Sign Up</button>
+
+</form>

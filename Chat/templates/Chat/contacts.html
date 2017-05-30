@@ -1,0 +1,25 @@
+
+
+<form action="{% url "Chat:chating" %}" method="post">
+{% csrf_token %}
+<button type="Submit" name="action" value="leave"/>LogOut</button><br>
+{% block title %}contacts{% endblock %}
+        <select name="nameuser">
+            {% for user in userslist %}
+                <option name="{{user}}">
+                    {{ user }}
+                </option>
+            {% endfor %}
+        </select>
+
+    <input type="submit" value="action" />
+</form>
+
+<script>
+    var clicked = document.getElementById("id1");
+    clicked.onclick = updateName;
+
+    function updateName() {
+        document.getElementById("id2").value = clicked.innerHTML;
+    }
+</script>

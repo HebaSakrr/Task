@@ -1,0 +1,17 @@
+{% block content %}
+  <form method="post">
+      {% csrf_token %}
+      <button type="Submit" name="action" value="leave"/>LogOut</button>
+      <button type="Submit" name="action" value="back"/>BACK</button><br>
+      <t>Chat</t>
+
+            {% for msg in allmessages %}
+                <p>
+                   {{ msg.sender }} : {{ msg.message_text}}
+                </p>
+            {% endfor %}
+        <input type="text" name="message">
+        <input type="hidden" name="nameuser" value="{{ nameuser }}">
+    <button type="submit">Send</button>
+  </form>
+{% endblock %}

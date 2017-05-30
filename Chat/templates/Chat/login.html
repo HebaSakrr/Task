@@ -1,0 +1,26 @@
+{##}
+{##}
+{#{% for user in users %}#}
+{#    {% if user == 'Heba' %}#}
+{#        <p> Love {{ user }} </p>#}
+{#    {% else %}#}
+{#        <p> {{user}} Ahbal </p>#}
+{#    {% endif %}#}
+{#{% endfor %}#}
+
+{% if Message %}
+    <p> {{ Message }} </p>
+{% endif %}
+
+<form action="{% url 'Chat:signin' %}" method="post">
+    {% csrf_token %}
+    <label> Username: </label>
+    <input type='text' name='username'/><br>
+
+    <label> Password: </label>
+    <input type='password' name='password'/><br>
+
+    <button type="Submit" name="action" value="login">Log In</button><br>
+    <button type="Submit" name="action" value="signup"/>Sign Up</button>
+
+</form>
