@@ -3,16 +3,30 @@
 <form action="{% url "Chat:chating" %}" method="post">
 {% csrf_token %}
 <button type="Submit" name="action" value="leave"/>LogOut</button><br>
-{% block title %}contacts{% endblock %}
-        <select name="nameuser">
-            {% for user in userslist %}
+<h1>CONTACTS</h1>
+    <t>Online Users</t><br>
+    <l>{% for user in userslistOn %}
+                    {{ user }}<br>
+            {% endfor %}</l>
+<br>
+    <t>Offline Users</t><br>
+    <l>{% for user in userslistOff %}
+                    {{ user }}<br>
+            {% endfor %}</l>
+    <br><br><br><t>Choose whom to chat with </t><br>
+    <select name="nameuser">
+            {% for user in userslistOn %}
+                <option name="{{user}}">
+                    {{ user }}
+                </option>
+            {% endfor %}
+            {% for user in userslistOff %}
                 <option name="{{user}}">
                     {{ user }}
                 </option>
             {% endfor %}
         </select>
-
-    <input type="submit" value="action" />
+    <input type="submit" value="action" name="go"/>
 </form>
 
 <script>
